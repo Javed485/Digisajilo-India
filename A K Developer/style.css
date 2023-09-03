@@ -545,6 +545,7 @@ input {
 .site-heading h4 {
   color: #46aeff;
   font-weight: 600;
+  margin-top: 50px;
   text-transform: uppercase;
 }
 
@@ -1678,7 +1679,7 @@ body,
 
 
 /* ============================================================== 
-     # Services 
+    # Services 
 =================================================================== */
 
 .services-area.bottom-less .equal-height {

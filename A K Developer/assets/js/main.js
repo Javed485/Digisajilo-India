@@ -1,20 +1,8 @@
-/* ===================================================================
-    
-    Author          : Valid Theme
-    Template Name   : Concrete - Factory, Industrial & Construction Template
-    Version         : 1.0
-    
-* ================================================================= */
 
 (function($) {
     "use strict";
-
     $(document).on('ready', function() {
-
-
-        /* ==================================================
-            # Wow Init
-         ===============================================*/
+    /* # Wow Init ===============================================*/
         var wow = new WOW({
             boxClass: 'wow', // animated element css class (default is wow)
             animateClass: 'animated', // animation css class (default is animated)
@@ -24,10 +12,7 @@
         });
         wow.init();
 
-
-        /* ==================================================
-            # Smooth Scroll
-         ===============================================*/
+    /* # Smooth Scroll ===============================================*/
         $("body").scrollspy({
             target: ".navbar-collapse",
             offset: 200
@@ -41,10 +26,7 @@
             event.preventDefault();
         });
 
-
-        /* ==================================================
-            # Banner Animation
-        ===============================================*/
+        /* # Banner Animation ===============================================*/
         function doAnimations(elems) {
             //Cache the animationend event in a variable
             var animEndEv = 'webkitAnimationEnd animationend';
@@ -70,10 +52,7 @@
             doAnimations($animatingElems);
         });
 
-
-        /* ==================================================
-            # Equal Height Init
-        ===============================================*/
+        /* # Equal Height Init ===============================================*/
         $(window).on('resize', function() {
             $(".equal-height").equalHeights();
         });
@@ -82,12 +61,8 @@
             $(".equal-height").equalHeights();
         });
 
-
-        /* ==================================================
-            # imagesLoaded active
-        ===============================================*/
-        $('#portfolio-grid,.blog-masonry').imagesLoaded(function() {
-
+        /* # imagesLoaded active ===============================================*/
+        $('#portfolio-grid').imagesLoaded(function() {
             /* Filter menu */
             $('.mix-item-menu').on('click', 'button', function() {
                 var filterValue = $(this).attr('data-filter');
@@ -111,52 +86,14 @@
                     columnWidth: '.pf-item',
                 }
             });
-
-            /* Filter active */
-            $('.blog-masonry').isotope({
-                itemSelector: '.blog-item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.blog-item',
-                }
-            });
-
         });
 
-
-         /* ==================================================
-            # Fun Factor Init
-        ===============================================*/
+        /* # Fun Factor Init ===============================================*/
         $('.timer').countTo();
         $('.fun-fact').appear(function() {
             $('.timer').countTo();
         }, {
             accY: -100
-        });
-
-
-        /* ==================================================
-            # Magnific popup init
-         ===============================================*/
-        $(".popup-link").magnificPopup({
-            type: 'image',
-            // other options
-        });
-
-        $(".popup-gallery").magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true
-            },
-            // other options
-        });
-
-        $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
-            type: "iframe",
-            mainClass: "mfp-fade",
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
         });
 
         $('.magnific-mix-gallery').each(function() {
@@ -198,64 +135,7 @@
             });
         });
 
-
-        /* ==================================================
-            # Portfolio Carousel
-         ===============================================*/
-        $('.portfolio-carousel').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: true,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-            dots: false,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        });
-
-
-        /* ==================================================
-            # Team Carousel
-         ===============================================*/
-        $('.team-carousel').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: true,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-            dots: false,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        });
-
-
-        /* ==================================================
-            # Management Carousel
-         ===============================================*/
+        /* # Testimonial Carousel ===============================================*/
         $('.testimonial-carousel').owlCarousel({
             loop: false,
             margin: 30,
@@ -278,190 +158,12 @@
                 }
             }
         });
-
-
-        /* ==================================================
-            # Clients Carousel
-         ===============================================*/
-        $('.clients-items').owlCarousel({
-            loop: false,
-            padding: 30,
-            nav: false,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-            dots: false,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 2
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
-                }
-            }
-        });
-
-
-        /* ==================================================
-            # Services Carousel
-         ===============================================*/
-        $('.services-carousel').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: false,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-            dots: true,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 2
-                }
-            }
-        });
-
-
-        /* ==================================================
-            # Services Carousel 3 Colum
-         ===============================================*/
-        $('.services-carousel-3-col').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: true,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-            dots: false,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        });
-
-
-        /* ==================================================
-            # Blog Carousel
-         ===============================================*/
-        $('.blog-carousel').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: true,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-            dots: false,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        });
-
-
-       /* ==================================================
-            # Ongoin Carousel
-         ===============================================*/
-        $('.og-carousel').owlCarousel({
-            loop: false,
-            nav: true,
-            dots: false,
-            items: 1,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-        });
-
-
-        /* ==================================================
-            # Gallery Carousel
-         ===============================================*/
-        $('.gallery-carousel').owlCarousel({
-            loop: false,
-            nav: true,
-            dots: false,
-            items: 1,
-            navText: [
-                "<i class='fa fa-angle-left'></i>",
-                "<i class='fa fa-angle-right'></i>"
-            ],
-        });
-
         
-        /* ==================================================
-            Preloader Init
-         ===============================================*/
+        /* Preloader Init ===============================================*/
         $(window).on('load', function() {
             // Animate loader off screen
             $(".se-pre-con").fadeOut("slow");;
         });
 
-
-        /* ==================================================
-            Contact Form Validations
-        ================================================== */
-        $('.contact-form').each(function() {
-            var formInstance = $(this);
-            formInstance.submit(function() {
-
-                var action = $(this).attr('action');
-
-                $("#message").slideUp(750, function() {
-                    $('#message').hide();
-
-                    $('#submit')
-                        .after('<img src="assets/img/ajax-loader.gif" class="loader" />')
-                        .attr('disabled', 'disabled');
-
-                    $.post(action, {
-                            name: $('#name').val(),
-                            email: $('#email').val(),
-                            phone: $('#phone').val(),
-                            comments: $('#comments').val()
-                        },
-                        function(data) {
-                            document.getElementById('message').innerHTML = data;
-                            $('#message').slideDown('slow');
-                            $('.contact-form img.loader').fadeOut('slow', function() {
-                                $(this).remove()
-                            });
-                            $('#submit').removeAttr('disabled');
-                        }
-                    );
-                });
-                return false;
-            });
-        });
-
-    }); // end document ready function
+    }); 
 })(jQuery); // End jQuery
