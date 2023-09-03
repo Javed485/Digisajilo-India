@@ -1,55 +1,3 @@
-/* ----------------------------------
-
-Template Name: Concrete - Factory, Industrial & Construction Template
-Author: validtheme
-Description:
-Version: 1.1
-
-Main Font    : Poppins
-Main Color   : #46aeff
-
--------------------------------------
-
-Table of contents
-        
-    01. Template default css
-    02. Navbar
-        - Navbar Default
-        - Navbar Sticky
-        - Navbar Transparent
-        - Nav With Topbar
-    03. Banner
-    04. Features
-    05. About Area
-    06. Services
-        - Carousel
-        - Grid
-        - Static
-    07. Portfolio
-        - Grid Colum
-        - Masonary Colum
-    08. Team
-        - Carousel
-        - Grid
-        - Static
-    09. Pricing Area
-    10. Fun Factor
-    11. Blog
-        - Standard
-        - Left Sidebar
-        - Right Sidebar
-    12. Clients Area
-    13. Faq
-    14. Concat Area
-    15. Subscribe Form
-    16. Error 404
-    17. Footer
-    18. PHP Contact Form
-    19. Others
-
-*/
-
-
 /*
 ** General Styles for HTML tags
 */
@@ -152,8 +100,9 @@ pre {
   line-height: 1.42857143;
 }
 
-input:focus, textarea:focus, 
- select:focus {
+input:focus, 
+textarea:focus, 
+select:focus {
   outline: none;
   box-shadow: inherit;
 }
@@ -1013,9 +962,9 @@ body,
 }
 
 .carousel-fade .carousel-inner .next, 
- .carousel-fade .carousel-inner .prev, 
- .carousel-fade .carousel-inner .active.left, 
- .carousel-fade .carousel-inner .active.right {
+.carousel-fade .carousel-inner .prev, 
+.carousel-fade .carousel-inner .active.left, 
+.carousel-fade .carousel-inner .active.right {
   left: 0;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -1931,11 +1880,6 @@ body,
 
 
 /* Services Flex Icon */
-
-.services-area.flex-icon .services-items .title i, 
-.services-area.flex-icon .services-items .title h4 {
-}
-
 .services-area.flex-icon .services-items .title a {
   align-items: center;
   display: flex;
@@ -3400,7 +3344,7 @@ body,
 .contact-area ul li {
   border-right: 1px solid #e7e7e7;
   display: inline-block;
-  float: left;
+  float:left; 
   margin-right: 20px;
   padding-right: 20px;
 }
