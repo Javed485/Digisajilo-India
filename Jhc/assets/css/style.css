@@ -128,7 +128,7 @@ h6 {
 #topbar {
   background: #3fbbc0;
   color: #fff;
-  height: 40px;
+  height: 50px;
   font-size: 16px;
   font-weight: 600;
   z-index: 996;
@@ -948,6 +948,7 @@ section {
   width: 120px;
   height: 120px;
 }
+
 .services .icon-box:hover .icon {
   box-shadow: 0px 0 25px rgba(63, 187, 192, 0.3);
 }
@@ -1871,11 +1872,11 @@ section {
 
 /*whatsapp icon & mail icon*/
 
-.whatsappLogo{
+.whatsappLogo {
   position: relative;
 }
 
-.whatsappLogo a img{
+.whatsappLogo a img {
   position: fixed;
   right: 10px;
   bottom: 150px;
@@ -1885,11 +1886,11 @@ section {
   box-shadow: 0px 0px 5px 1px #aaa;
 }
 
-.ayushcarelogo{
+.ayushcarelogo {
   position: relative;
 }
 
-.ayushcarelogo img{
+.ayushcarelogo img {
   position: fixed;
   right: 10px;
   bottom: 220px;
@@ -1899,11 +1900,11 @@ section {
   box-shadow: 0px 0px 5px 1px #aaa;
 }
 
-.emailLogo{
+.emailLogo {
   position: relative;
 }
 
-.emailLogo img{
+.emailLogo img {
   position: fixed;
   right: 10px;
   bottom: 80px;
@@ -1913,17 +1914,16 @@ section {
   box-shadow: 0px 0px 5px 1px #aaa;
 }
 
-.callLogo{
+.callLogo {
   position: relative;
 }
 
-.callLogo a img{
+.callLogo a img {
   position: fixed;
-right: 10px;
-bottom: 150px;
-z-index: 1000000;
-width: 55px;
-border-radius: 50%;
-box-shadow: 0px 0px 5px 1px #aaa;
+  right: 10px;
+  bottom: 150px;
+  z-index: 1000000;
+  width: 55px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 1px #aaa;
 }
-
