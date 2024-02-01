@@ -6,13 +6,13 @@ Copyright (c) 2018
 Project:	Handicraft  - Responsive HTML Template
 
 -------------------------------------------------------------------*/
-(function($) {
+(function ($) {
     "use strict";
     var HandMade = {
         initialised: false,
         version: 1.0,
         mobile: false,
-        init: function() {
+        init: function () {
 
             if (!this.initialised) {
                 this.initialised = true;
@@ -23,7 +23,7 @@ Project:	Handicraft  - Responsive HTML Template
             /*-------------- Hand Made Functions Calling ---------------------------------------------------
             ------------------------------------------------------------------------------------------------*/
             this.RTL();
-			this.Slider();
+            this.Slider();
             this.Scroll_to_bottom()
             this.Menu_toggle();
             this.Search();
@@ -37,13 +37,11 @@ Project:	Handicraft  - Responsive HTML Template
             this.Spiner();
             this.Range_slider();
             this.MailFunction();
-
-
         },
 
         /*-------------- Hand Made Functions definition ---------------------------------------------------
         ---------------------------------------------------------------------------------------------------*/
-		RTL: function() {
+        RTL: function () {
             // On Right-to-left(RTL) add class 
             var rtl_attr = $("html").attr('dir');
             if (rtl_attr) {
@@ -51,13 +49,11 @@ Project:	Handicraft  - Responsive HTML Template
             }
         },
         //Main slider
-        Slider: function() {
+        Slider: function () {
             if ($(".rev_slider_wrapper").length) {
-
                 var tpj = jQuery;
-
                 var revapi1068;
-                tpj(document).ready(function() {
+                tpj(document).ready(function () {
                     if (tpj("#rev_slider_1068_1").revolution == undefined) {
                         revslider_showDoubleJqueryError("#rev_slider_1068_1");
                     } else {
@@ -136,11 +132,9 @@ Project:	Handicraft  - Responsive HTML Template
 
             //Slider for full screen layout
             if ($(".hm_home_style3 .rev_slider_wrapper").length) {
-
                 var tpj = jQuery;
-
                 var revapi1068;
-                tpj(document).ready(function() {
+                tpj(document).ready(function () {
                     if (tpj("#rev_slider_1068_2").revolution == undefined) {
                         revslider_showDoubleJqueryError("#rev_slider_1068_2");
                     } else {
@@ -219,8 +213,8 @@ Project:	Handicraft  - Responsive HTML Template
 
         },
         //Scroll
-        Scroll_to_bottom: function() {
-            $('.int_scroll').on('click', function() {
+        Scroll_to_bottom: function () {
+            $('.int_scroll').on('click', function () {
                 var height = $(window).height();
                 $('html,body').animate({
                     scrollTop: $(this).offset().top
@@ -228,53 +222,47 @@ Project:	Handicraft  - Responsive HTML Template
             });
         },
 
-
         //Menu toggle
-        Menu_toggle: function() {
-
-
-            $(".menu_btn").on('click', function() {
+        Menu_toggle: function () {
+            $(".menu_btn").on('click', function () {
                 $(".hm_menu").toggleClass('open_menu');
             });
 
-            $('.hm_menu ul li.dropdown').children('a').append(function() {
+            $('.hm_menu ul li.dropdown').children('a').append(function () {
                 return '<div class="dropdown-expander"><i class="fa fa-bars"></i></div>';
             });
-            $('.hm_menu > ul > li.dropdown a >.dropdown-expander').on('click', function() {
+            $('.hm_menu > ul > li.dropdown a >.dropdown-expander').on('click', function () {
                 $(this).parent().parent().children('.sub-menu').slideToggle();
                 return false;
             });
 
             //Menu style2
 
-            $('.hm_menu_bar > i').on('click', function() {
-
+            $('.hm_menu_bar > i').on('click', function () {
                 $('.hm_menu_wrapper.menu_hide').addClass('hidden_menu_open');
             });
 
-            $('.hm_hidden-bar-close i').on('click', function() {
+            $('.hm_hidden-bar-close i').on('click', function () {
                 $('.hm_menu_wrapper.menu_hide').removeClass('hidden_menu_open');
             });
 
-            $('.home_style2 .hm_menu ul li.dropdown').children('a').append(function() {
+            $('.home_style2 .hm_menu ul li.dropdown').children('a').append(function () {
                 return '<div class="dropdown-expander2"><i class="fa fa-bars"></i></div>';
             });
-            $('.home_style2 .hm_menu > ul > li.dropdown a >.dropdown-expander2').on('click', function() {
+            $('.home_style2 .hm_menu > ul > li.dropdown a >.dropdown-expander2').on('click', function () {
                 $(this).parent().parent().children('.sub-menu').slideToggle();
                 return false;
             });
-
         },
-
 
         //Search
 
-        Search: function() {
+        Search: function () {
             // Search box
-            $('.hm_home_style1 .hm_header_search > i').on('click', function() {
+            $('.hm_home_style1 .hm_header_search > i').on('click', function () {
                 $(this).parent().toggleClass('search_open');
             });
-            $('.icon_close i').on('click', function() {
+            $('.icon_close i').on('click', function () {
                 $('.hm_home_style1 .hm_header_search').removeClass('search_open');
             });
 
@@ -282,51 +270,49 @@ Project:	Handicraft  - Responsive HTML Template
 
         //onclick login form
 
-        Login_form: function() {
-            $('.popup-with-form').on('click', function() {
+        Login_form: function () {
+            $('.popup-with-form').on('click', function () {
                 $('.hm_login_form_overlay').addClass('login_open');
                 $('body').addClass('login_overflow');
             });
-            $('.login_close').on('click', function() {
+            $('.login_close').on('click', function () {
                 $('.hm_login_form_overlay').removeClass('login_open');
                 $('body').removeClass('login_overflow');
             });
 
-            $('.hm_login_form_overlay').on('click', function() {
+            $('.hm_login_form_overlay').on('click', function () {
                 $('.hm_login_form_overlay').removeClass('login_open');
                 $('body').removeClass('login_overflow');
             });
-            $('.hm_login_form').on('click', function() {
+            $('.hm_login_form').on('click', function () {
                 return false;
             });
-
         },
 
         //Onclick signup form
 
-        Signup_form: function() {
-            $('.popup-signup-form').on('click', function() {
+        Signup_form: function () {
+            $('.popup-signup-form').on('click', function () {
                 $('.hm_signup_form_overlay').addClass('login_open');
                 $('body').addClass('login_overflow');
             });
-            $('.login_close').on('click', function() {
+            $('.login_close').on('click', function () {
                 $('.hm_signup_form_overlay').removeClass('login_open');
                 $('body').removeClass('login_overflow');
             });
 
-            $('.hm_signup_form_overlay').on('click', function() {
+            $('.hm_signup_form_overlay').on('click', function () {
                 $('.hm_signup_form_overlay').removeClass('login_open');
                 $('body').removeClass('login_overflow');
             });
-            $('.hm_signup_form ').on('click', function() {
+            $('.hm_signup_form ').on('click', function () {
                 return false;
             });
-
         },
 
         //Testimonial slider
 
-        Testimonial: function() {
+        Testimonial: function () {
             $('.related_pro_slider').owlCarousel({
                 loop: true,
                 margin: 20,
@@ -345,11 +331,10 @@ Project:	Handicraft  - Responsive HTML Template
                     }
                 }
             })
-
         },
         //Related Product Slider
 
-        Related_pro: function() {
+        Related_pro: function () {
             $('.test_slider').owlCarousel({
                 loop: true,
                 margin: 10,
@@ -368,11 +353,10 @@ Project:	Handicraft  - Responsive HTML Template
                     }
                 }
             })
-
         },
 
         //Gallery
-        Gallery: function() {
+        Gallery: function () {
             if ($(".hm_gallery_inner").length > 0) {
                 $(".popup-gallery").magnificPopup({
                     type: 'image',
@@ -381,15 +365,12 @@ Project:	Handicraft  - Responsive HTML Template
                     gallery: {
                         enabled: true,
                     }
-
-
                 });
             }
             //Magnific for iframe
             if ($(".hm_news_wrapper").length > 0) {
                 $(".popup-iframe").magnificPopup({
                     type: 'iframe'
-
                 });
             }
             //Magnific for Blog
@@ -401,7 +382,6 @@ Project:	Handicraft  - Responsive HTML Template
                     gallery: {
                         enabled: true,
                     }
-
                 });
             }
             //Magnific for instagram gallery
@@ -413,37 +393,32 @@ Project:	Handicraft  - Responsive HTML Template
                     gallery: {
                         enabled: true,
                     }
-
                 });
             }
-
         },
         // Portfolio Sorting
-        Sorting: function() {
+        Sorting: function () {
             if ($('.filter_list ul li a').length > 0) {
-                $(".filter_list ul li a").on("click", function(e) {
+                $(".filter_list ul li a").on("click", function (e) {
                     e.preventDefault();
                 });
                 $('#portfolio').mixItUp();
-
             }
         },
         //Wow
-        Wow: function() {
-
+        Wow: function () {
             new WOW().init();
         },
 
         //Spiner
 
-        Spiner: function() {
-
+        Spiner: function () {
             if ($('.quantity-spinner').length) {
-                $('.quantity-spinner .plus').on('click', function() {
+                $('.quantity-spinner .plus').on('click', function () {
                     var val = $(this).prev('.prod_qty').val();
                     $(this).prev('.prod_qty').val((val * 1) + 1);
                 });
-                $('.quantity-spinner .minus').on('click', function() {
+                $('.quantity-spinner .minus').on('click', function () {
                     var val = $(this).next('.prod_qty').val();
                     if (val != 1) {
                         $(this).next('.prod_qty').val((val * 1) - 1);
@@ -453,15 +428,14 @@ Project:	Handicraft  - Responsive HTML Template
         },
         //Range slider
 
-        Range_slider: function() {
+        Range_slider: function () {
             if ($('#slider_range').length) {
-
                 $("#slider_range").slider({
                     range: true,
                     min: 0,
                     max: 500,
                     values: [75, 300],
-                    slide: function(event, ui) {
+                    slide: function (event, ui) {
                         $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
                     }
                 });
@@ -471,8 +445,8 @@ Project:	Handicraft  - Responsive HTML Template
         },
 
         //Contact mail
-        MailFunction: function() {
-            $('.submit_frm').on('click', function() {
+        MailFunction: function () {
+            $('.submit_frm').on('click', function () {
                 var u_name = $('#name').val();
                 var u_email = $('#email').val();
                 var u_phone = $('#number').val();
@@ -489,7 +463,7 @@ Project:	Handicraft  - Responsive HTML Template
                         'usersubject': u_subject,
                         'user_msg': u_msg,
                     },
-                    success: function(msg) {
+                    success: function (msg) {
                         var full_msg = msg.split("#");
                         if (full_msg[0] == '1') {
                             $('#name').val("");
@@ -510,15 +484,11 @@ Project:	Handicraft  - Responsive HTML Template
                 });
             });
         }
-
-
-
-
     };
 
     HandMade.init();
     //On scroll fixed menu
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         var wh = window.innerWidth;
         if (wh > 767) {
             var h = window.innerHeight;
@@ -529,17 +499,13 @@ Project:	Handicraft  - Responsive HTML Template
             } else {
                 $('.hm_menu_wrapper').removeClass('hm_fixed');
             }
-
-
         }
-
     });
     // Load Event
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         jQuery(".loader").fadeOut();
         jQuery(".loader").delay(600).fadeOut("slow");
-
     });
 
 
