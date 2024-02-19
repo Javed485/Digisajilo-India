@@ -1,0 +1,13 @@
+
+/* =========== Top Header =========== */
+@media screen and (max-width: 992px) {
+    .all_city_dropdown {
+        width: 140px;
+        margin-left: 5px;  
+    }
+}
+@media screen and (max-width: 767px){
+    .Header .top_header .top_contents .top_left_contents .header_left_contents {
+       display: none;
+    }
+}
