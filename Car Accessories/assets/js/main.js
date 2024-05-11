@@ -2,54 +2,46 @@
 	'use strict';
 	/*----------------------------------------*/
 	/*  Preloader  
-/*----------------------------------------*/
+	/*----------------------------------------*/
 	var windows = $(window);
-    windows.on('load', function(){
-        $(".preloader-activate").removeClass('preloader-active');
-    });
-    jQuery(window).on('load', function(){
-		setTimeout(function(){
-        jQuery('.open_tm_preloader').addClass('loaded');
-        }, 1000);
+	windows.on('load', function () {
+		$(".preloader-activate").removeClass('preloader-active');
+	});
+	jQuery(window).on('load', function () {
+		setTimeout(function () {
+			jQuery('.open_tm_preloader').addClass('loaded');
+		}, 1000);
 	});
 
 	/*----------------------------------------*/
-	/*  ion Range Slider 
-/*----------------------------------------*/
-    $(".tromic-range-slider").ionRangeSlider({
-        prefix: "$",
-    });
-	
-	/*----------------------------------------*/
 	/*  Check if element exists
-/*----------------------------------------*/
+	/*----------------------------------------*/
 	$.fn.elExists = function () {
 		return this.length > 0;
 	};
 
-    /*--
-        Custom script to call Background
-        Image & Color from html data attribute
-    -----------------------------------*/
-    $('[data-bg-image]').each(function () {
-        var $this = $(this),
-            $image = $this.data('bg-image');
-        $this.css('background-image', 'url(' + $image + ')');
-    });
-    $('[data-bg-color]').each(function () {
-        var $this = $(this),
-            $color = $this.data('bg-color');
-        $this.css('background-color', $color);
+	/*-- Custom script to call Background
+		Image & Color from html data attribute
+	-----------------------------------*/
+	$('[data-bg-image]').each(function () {
+		var $this = $(this),
+			$image = $this.data('bg-image');
+		$this.css('background-image', 'url(' + $image + ')');
+	});
+	$('[data-bg-color]').each(function () {
+		var $this = $(this),
+			$color = $this.data('bg-color');
+		$this.css('background-color', $color);
 	});
 
 	/*----------------------------------------*/
 	/*  WOW
-/*----------------------------------------*/
+	/*----------------------------------------*/
 	new WOW().init();
 
-	/*---------------------------------------
-		Header Sticky
----------------------------------*/
+	/*---------------------------------------*/
+	/*  Header Sticky
+	/* ---------------------------------------*/
 	$(window).on('scroll', function () {
 		if ($(this).scrollTop() > 300) {
 			$('.header-sticky').addClass('sticky');
@@ -58,30 +50,10 @@
 		}
 	});
 
-	/*----------------------------------------*/
-	/*  HasSub Item
-/*----------------------------------------*/
-	$('.hassub-item li.hassub a, .frequently-item li.has-sub a').on('click', function () {
-		$(this).removeAttr('href');
-		var element = $(this).parent('li');
-		if (element.hasClass('open')) {
-			element.removeClass('open');
-			element.find('li').removeClass('open');
-			element.find('ul').slideUp();
-		} else {
-			element.addClass('open');
-			element.children('ul').slideDown();
-			element.siblings('li').children('ul').slideUp();
-			element.siblings('li').removeClass('open');
-			element.siblings('li').find('li').removeClass('open');
-			element.siblings('li').find('ul').slideUp();
-		}
-	});
+	/*---------------------------------*/
+	/*  Swiper All Slider
+	/*---------------------------------*/
 
-	/*---------------------------------------
-		Swiper All Slider
----------------------------------*/
-	
 	/* ---Main Slider--- */
 	if ($('.main-slider').elExists()) {
 		var swiper = new Swiper('.main-slider', {
@@ -112,38 +84,10 @@
 	}, function () {
 		(this).swiper.autoplay.start();
 	});
-	/* ---Main Slider Two--- */
-	if ($('.main-slider-2').elExists()) {
-		var swiper = new Swiper('.main-slider-2', {
-			loop: true,
-			slidesPerView: 1,
-			speed: 750,
-			autoplay: {
-				delay: 4000
-			},
-			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
-			navigation: {
-				nextEl: '.custom-button-next',
-				prevEl: '.custom-button-prev',
-			},
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-				type: 'bullets'
-			},
-		});
-	}
-	$(".main-slider-2").hover(function () {
-		(this).swiper.autoplay.stop();
-	}, function () {
-		(this).swiper.autoplay.start();
-	});
+
 
 	/* --- Product Slider--- */
-	if($('.product-slider').elExists()){
+	if ($('.product-slider').elExists()) {
 		var mySwiper = new Swiper('.product-slider', {
 			slidesPerView: 4,
 			spaceBetween: 30,
@@ -154,163 +98,24 @@
 			},
 			breakpoints: {
 				320: {
-				  slidesPerView: 1,
+					slidesPerView: 1,
 				},
 				576: {
-				  slidesPerView: 2,
-				},
-				992: {
-				  slidesPerView: 3,
-				},
-				1501: {
-				  slidesPerView: 4,
-				}
-			}
-		});
-	}
-
-	/* --- Product List Slider--- */
-	if($('.product-list-slider').elExists()){
-		var mySwiper = new Swiper('.product-list-slider', {
-			slidesPerView: 3,
-			spaceBetween: 30,
-			loop: false,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					slidesPerColumn: 1,
-					slidesPerGroup: 1,
-					slidesPerColumnFill: 'column',
-				},
-				768: {
 					slidesPerView: 2,
-					slidesPerColumn: 2,
-					slidesPerGroup: 1,
-					slidesPerColumnFill: 'row',
 				},
-				1200: {
+				992: {
 					slidesPerView: 3,
-					slidesPerColumn: 2,
-					slidesPerGroup: 1,
-					slidesPerColumnFill: 'row',
-				},
-			}
-		});
-	}
-
-	/* --- Product List Slider Two--- */
-	if($('.widgets-list-slider').elExists()){
-		var mySwiper = new Swiper('.widgets-list-slider', {
-			slidesPerView: 1,
-			loop: false,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					slidesPerColumn: 1,
-					slidesPerGroup: 1,
-					slidesPerColumnFill: 'column',
-					spaceBetween: 5,
-				},
-				768: {
-					slidesPerView: 1,
-					slidesPerColumn: 2,
-					slidesPerGroup: 1,
-					slidesPerColumnFill: 'row',
-				},
-				992: {
-					slidesPerView: 1,
-					slidesPerColumn: 4,
-					slidesPerGroup: 1,
-					slidesPerColumnFill: 'row',
-				},
-			}
-		});
-	}
-
-	/* --- Blog Slider--- */
-	if($('.blog-slider').elExists()){
-		var mySwiper = new Swiper('.blog-slider', {
-			slidesPerView: 3,
-			spaceBetween: 30,
-			loop: true,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			breakpoints: {
-				320: {
-				  slidesPerView: 1,
-				},
-				768: {
-				  slidesPerView: 2,
-				},
-				992: {
-				  slidesPerView: 3,
-				}
-			}
-		});
-	}
-
-	/* ---  Special Deals Slider--- */
-	if($('.special-deals-slider').elExists()){
-		var mySwiper = new Swiper('.special-deals-slider', {
-			slidesPerView: 3,
-			spaceBetween: 30,
-			loop: true,
-			navigation: {
-				nextEl: '.special-deals-button-next',
-				prevEl: '.special-deals-button-prev',
-			},
-			breakpoints: {
-				320: {
-				  slidesPerView: 1,
-				},
-				768: {
-				  slidesPerView: 2,
 				},
 				1501: {
-				  slidesPerView: 3,
+					slidesPerView: 4,
 				}
 			}
 		});
 	}
 
-	/* --- Single Blog Slider--- */
-	if($('.single-blog-slider').elExists()){
-		var swiper = new Swiper('.single-blog-slider', {
-			slidesPerView: 1,
-			effect: "fade",
-			fadeEffect: {
-				crossFade: true
-			},
-			speed: 750,
-			autoplay: {
-				disableOnInteraction: false,
-				delay: 3000
-			},
-			loop: true,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-		});
-	}
-	$(".single-blog-slider").hover(function () {
-		(this).swiper.autoplay.stop();
-	}, function () {
-		(this).swiper.autoplay.start();
-	});
 
 	/* --- Testimonial Sliderr--- */
-	if($('.testimonial-slider').elExists()){
+	if ($('.testimonial-slider').elExists()) {
 		var mySwiper = new Swiper('.testimonial-slider', {
 			preventInteractionOnTransition: true,
 			slidesPerView: 3,
@@ -327,31 +132,31 @@
 			},
 			breakpoints: {
 				320: {
-				  slidesPerView: 1,
-				  centeredSlides: false,
-				  centeredSlidesBounds: false,
+					slidesPerView: 1,
+					centeredSlides: false,
+					centeredSlidesBounds: false,
 				},
 				768: {
-				  slidesPerView: 2,
-				  centeredSlides: false,
-				  centeredSlidesBounds: false,
+					slidesPerView: 2,
+					centeredSlides: false,
+					centeredSlidesBounds: false,
 				},
 				992: {
-				  slidesPerView: 2,
-				  centeredSlides: false,
-				  centeredSlidesBounds: false,
+					slidesPerView: 2,
+					centeredSlides: false,
+					centeredSlidesBounds: false,
 				},
 				1200: {
-				  slidesPerView: 3,
-				  centeredSlides: true,
-				  centeredSlidesBounds: true,
+					slidesPerView: 3,
+					centeredSlides: true,
+					centeredSlidesBounds: true,
 				}
 			}
 		});
 	}
 
 	/* --- Brand Slider--- */
-	if($('.brand-slider').elExists()){
+	if ($('.brand-slider').elExists()) {
 		var mySwiper = new Swiper('.brand-slider', {
 			slidesPerView: 6,
 			spaceBetween: 120,
@@ -366,229 +171,29 @@
 			},
 			breakpoints: {
 				320: {
-				  slidesPerView: 2,
-				  spaceBetween: 30,
-				},
-				480: {
-				  slidesPerView: 3,
-				  spaceBetween: 30,
-				},
-				768: {
-				  slidesPerView: 4,
-				},
-				992: {
-				  slidesPerView: 5,
-				},
-				1200: {
-				  slidesPerView: 6,
-				}
-			}
-		});
-	}
-
-	/* --- Brand Slider--- */
-	if($('.brand-slider-2').elExists()){
-		var mySwiper = new Swiper('.brand-slider-2', {
-			slidesPerView: 5,
-			spaceBetween: 120,
-			loop: true,
-			speed: 750,
-			autoplay: {
-				delay: 4000
-			},
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			breakpoints: {
-				320: {
-				  slidesPerView: 1,
-				  spaceBetween: 30,
-				},
-				480: {
-				  slidesPerView: 2,
-				  spaceBetween: 30,
-				},
-				576: {
-				  slidesPerView: 3,
-				  spaceBetween: 30,
-				},
-				992: {
-				  slidesPerView: 4,
-				},
-				1200: {
-				  slidesPerView: 5,
-				}
-			}
-		});
-	}
-
-	/* --- Team Member Sliderr--- */
-	if($('.team-member-slider').elExists()){
-		var mySwiper = new Swiper('.team-member-slider', {
-			slidesPerView: 3,
-			spaceBetween: 30,
-			loop: true,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			breakpoints: {
-				320: {
-				  slidesPerView: 1,
-				},
-				576: {
-				  slidesPerView: 2,
-				},
-				768: {
-				  slidesPerView: 3,
-				}
-			}
-		});
-	}
-
-	/* ---Product Detail Horizontal Slider--- */
-	if($('.single-product-slider').elExists()){
-		var singleProduct = new Swiper('.single-product-thumbs', {
-			spaceBetween: 10,
-			slidesPerView: 4,
-			observer: true,
-            observeParents: true,
-			freeMode: false,
-			watchSlidesVisibility: true,
-			watchSlidesProgress: true,
-			allowTouchMove: false,
-			loop: true,
-			navigation: {
-				nextEl: '.thumbs-button-next',
-				prevEl: '.thumbs-button-prev',
-			},
-			breakpoints: {
-				320: {
 					slidesPerView: 2,
-					allowTouchMove: true
+					spaceBetween: 30,
 				},
 				480: {
 					slidesPerView: 3,
-					allowTouchMove: true
+					spaceBetween: 30,
 				},
 				768: {
-				  slidesPerView: 4,
-				  allowTouchMove: true
+					slidesPerView: 4,
+				},
+				992: {
+					slidesPerView: 5,
 				},
 				1200: {
-				  slidesPerView: 4,
-				  allowTouchMove: false
+					slidesPerView: 6,
 				}
 			}
 		});
-		var singleProduct = new Swiper('.single-product-slider', {
-			autoplay: false,
-			observer: true,
-            observeParents: true,
-			delay: 5000,
-			slidesPerView: 1,
-			slidesPerGroup: 1,
-			watchSlidesProgress: true,
-			watchSlidesVisibility: true,
-			allowTouchMove: true,
-			setWrapperSize: true,
-			waitForTransition: true,
-			loop: false,
-			navigation: {
-				nextEl: '.gallery-button-next',
-				prevEl: '.gallery-button-prev',
-			},
-			thumbs: {
-				swiper: singleProduct
-			}
-		});
 	}
-
-	/* ---Modal Slider--- */
-	if($('.modal-slider').elExists()){
-		var singleProduct = new Swiper('.modal-thumbs', {
-			spaceBetween: 10,
-			slidesPerView: 4,
-			observer: true,
-            observeParents: true,
-			freeMode: false,
-			watchSlidesVisibility: true,
-			watchSlidesProgress: true,
-			allowTouchMove: false,
-			loop: false,
-			breakpoints: {
-				320: {
-				  slidesPerView: 2,
-				  allowTouchMove: true
-				},
-				480: {
-				  slidesPerView: 3,
-				  allowTouchMove: true
-				},
-				768: {
-				  slidesPerView: 4,
-				  allowTouchMove: true
-				},
-				1200: {
-				  slidesPerView: 4,
-				  allowTouchMove: false
-				}
-			}
-		});
-		var singleProduct = new Swiper('.modal-slider', {
-			autoplay: false,
-			observer: true,
-            observeParents: true,
-			delay: 5000,
-			slidesPerView: 1,
-			slidesPerGroup: 1,
-			watchSlidesProgress: true,
-			watchSlidesVisibility: true,
-			allowTouchMove: true,
-			setWrapperSize: true,
-			waitForTransition: true,
-			loop: false,
-			navigation: {
-				nextEl: '.thumbs-button-next',
-				prevEl: '.thumbs-button-prev',
-			},
-			thumbs: {
-				swiper: singleProduct
-			}
-		});
-	}
-
-
-	/* ---Scene--- */
-	$('.scene').each(function () {
-        new Parallax($(this)[0]);
-    });
-
-	/*----------------------------------------*/
-	/* Toggle Function Active
-	/*----------------------------------------*/
-	// showlogin toggle
-	$('#showlogin').on('click', function () {
-		$('#checkout-login').slideToggle(900);
-	});
-	// showlogin toggle
-	$('#showcoupon').on('click', function () {
-		$('#checkout_coupon').slideToggle(900);
-	});
-	// showlogin toggle
-	$('#cbox').on('click', function () {
-		$('#cbox-info').slideToggle(900);
-	});
-
-	// showlogin toggle
-	$('#ship-box').on('click', function () {
-		$('#ship-box-info').slideToggle(1000);
-	});
 
 	/*----------------------------------------*/
 	/*  Countdown
-/*----------------------------------------*/
+	/*----------------------------------------*/
 	function makeTimer($endDate, $this, $format) {
 		var today = new Date();
 		var BigDay = new Date($endDate),
@@ -685,32 +290,9 @@
 		});
 	}
 
-	/*------------------------------------
-	    Magnific Popup
-	    ------------------------------------- */
-		if ($('.popup-vimeo').elExists()){
-			$('.popup-vimeo').magnificPopup({
-				type: 'iframe',
-				disableOn: function () {
-					if ($(window).width() < 600) {
-						return false;
-					}
-					return true;
-				}
-			});
-		}
-		if ($('.gallery-popup').elExists()){
-			$('.gallery-popup').magnificPopup({
-				type: 'image',
-				gallery: {
-					enabled: true
-				}
-			});
-		}
-	
-	/*------------------------------------
-	Toolbar Button
-	------------------------------------- */
+	/*-------------------------------------- */
+	/* Toolbar Button
+	/* ------------------------------------- */
 	var $overlay = $('.global-overlay');
 	$('.toolbar-btn').on('click', function (e) {
 		e.preventDefault();
@@ -725,7 +307,7 @@
 
 	/*----------------------------------------*/
 	/*  Click on Documnet
-/*----------------------------------------*/
+	/*----------------------------------------*/
 	var $body = $('.global-overlay');
 
 	$body.on('click', function (e) {
@@ -741,7 +323,7 @@
 
 	/*----------------------------------------*/
 	/*  Close Button Actions
-/*----------------------------------------*/
+	/*----------------------------------------*/
 	$('.button-close').on('click', function (e) {
 		var dom = $('.main-wrapper').children();
 		e.preventDefault();
@@ -752,7 +334,7 @@
 
 	/*----------------------------------------*/
 	/*  Offcanvas
-/*----------------------------------------*/
+	/*----------------------------------------*/
 	var $offcanvasNav = $('.mobile-menu, .offcanvas-minicart_menu'),
 		$offcanvasNavWrap = $(
 			'.mobile-menu_wrapper, .offcanvas-minicart_wrapperm, .offcanvas-search_wrapper'
@@ -792,86 +374,9 @@
 		$('.mobile-menu .menu-item-has-children').removeClass('menu-open');
 	})
 
-	/*----------------------------------------*/
-	/*  QTY Button
-/*----------------------------------------*/
-	$('.cart-plus-minus').append(
-		'<div class="dec qtybutton"><i class="fa fa-minus"></i></div><div class="inc qtybutton"><i class="fa fa-plus"></i></div>'
-	);
-	$('.qtybutton').on('click', function () {
-		var $button = $(this);
-		var oldValue = $button.parent().find('input').val();
-		if ($button.hasClass('inc')) {
-			var newVal = parseFloat(oldValue) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValue > 1) {
-				var newVal = parseFloat(oldValue) - 1;
-			} else {
-				newVal = 1;
-			}
-		}
-		$button.parent().find('input').val(newVal);
-	});
-
-	/*----------------------------------------*/
-	/*  Nice Select
-/*----------------------------------------*/
-	if ($('.nice-select').elExists()) {
-		$('.nice-select').niceSelect();
-	}
-	
-	/*--------------------------------
-	Ajax Contact Form
--------------------------------- */
-	$(function () {
-		// Get the form.
-		var form = $('#contact-form');
-		// Get the messages div.
-		var formMessages = $('.form-message');
-		// Set up an event listener for the contact form.
-		$(form).submit(function (e) {
-			// Stop the browser from submitting the form.
-			e.preventDefault();
-			// Serialize the form data.
-			var formData = $(form).serialize();
-			// Submit the form using AJAX.
-			$.ajax({
-				type: 'POST',
-				url: $(form).attr('action'),
-				data: formData,
-			})
-				.done(function (response) {
-					// Make sure that the formMessages div has the 'success' class.
-					$(formMessages).removeClass('error');
-					$(formMessages).addClass('success');
-
-					// Set the message text.
-					$(formMessages).text(response);
-
-					// Clear the form.
-					$('#contact-form input,#contact-form textarea').val('');
-				})
-				.fail(function (data) {
-					// Make sure that the formMessages div has the 'error' class.
-					$(formMessages).removeClass('success');
-					$(formMessages).addClass('error');
-
-					// Set the message text.
-					if (data.responseText !== '') {
-						$(formMessages).text(data.responseText);
-					} else {
-						$(formMessages).text(
-							'Oops! An error occured and your message could not be sent.'
-						);
-					}
-				});
-		});
-	});
-	
-	/*--------------------------------
-    Scroll To Top
--------------------------------- */
+	/*-------------------------------- */
+	/*  Scroll To Top
+	/* ------------------------------- */
 	function scrollToTop() {
 		var $scrollUp = $('.scroll-to-top'),
 			$lastScrollTop = 0,
@@ -902,53 +407,32 @@
 	scrollToTop();
 
 	/*--------------------------------
-    Hash Link Scroll To Top Prevent
--------------------------------- */
+	/*  Hash Link Scroll To Top Prevent
+	/* -------------------------------- */
 	$('a[href="#"]').on('click', (function (e) {
-	e.preventDefault ? e.preventDefault() : e.returnValue = false;
+		e.preventDefault ? e.preventDefault() : e.returnValue = false;
 	}));
 
-	/*--------------------------------
-    MailChimp
--------------------------------- */
-    $('#mc-form').ajaxChimp({
-        language: 'en',
-        callback: mailChimpResponse,
-        url: 'https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef'
-
-    });
-    function mailChimpResponse(resp) {
-
-        if (resp.result === 'success') {
-            $('.mailchimp-success').addClass('active')
-            $('.mailchimp-success').html('' + resp.msg).fadeIn(900);
-            $('.mailchimp-error').fadeOut(400);
-
-        } else if(resp.result === 'error') {
-            $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-        }  
-    }
 
 })(jQuery);
 
 
 /*--------------------------------
-    Product Categories / Tablinks
+	Product Categories / Tablinks
 -------------------------------- */
 function openCity(evt, cityName) {
 	var i, tabcontent, tablinks;
 	tabcontent = document.getElementsByClassName("tabcontent");
 	for (i = 0; i < tabcontent.length; i++) {
-	  tabcontent[i].style.display = "none";
+		tabcontent[i].style.display = "none";
 	}
 	tablinks = document.getElementsByClassName("tablinks");
 	for (i = 0; i < tablinks.length; i++) {
-	  tablinks[i].className = tablinks[i].className.replace(" active", "");
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
 	}
 	document.getElementById(cityName).style.display = "block";
 	evt.currentTarget.className += " active";
-  }
-  
-  // Get the element with id="defaultCar" and click on it
-   document.getElementById("defaultCar").click();
-  
+}
+
+// Get the element with id="defaultCar" and click on it
+document.getElementById("defaultCar").click();
