@@ -1,5 +1,5 @@
-(function($) {
-  
+(function ($) {
+
   "use strict";
 
   // Preloader
@@ -8,16 +8,16 @@
   }
 
   // Background Image
-  $('[data-bg-img]').each(function() {
+  $('[data-bg-img]').each(function () {
     $(this).css('background-image', 'url(' + $(this).data("bg-img") + ')');
   });
 
   // Off Canvas JS
   var canvasWrapper = $(".off-canvas-wrapper");
-  $(".btn-menu").on('click', function() {
+  $(".btn-menu").on('click', function () {
     canvasWrapper.addClass('active');
   });
-  $(".close-action > .btn-close, .off-canvas-overlay").on('click', function() {
+  $(".close-action > .btn-close, .off-canvas-overlay").on('click', function () {
     canvasWrapper.removeClass('active');
   });
 
@@ -30,43 +30,6 @@
     openedSymbol: '<i class="fa fa-angle-up"></i>'
   });
 
-  // Search Box JS
-  var searchwrapper = $(".search-box-wrapper");
-  $(".btn-search-menu").on('click', function() {
-    searchwrapper.addClass('show');
-    $("#search-input").focus();
-  });
-  $(".search-close").on('click', function() {
-    searchwrapper.removeClass('show');
-  });
-
-  // Product Quick View JS
-  var quickViewModal = $(".product-quick-view-modal");
-  $(".product-action .action-quick-view").on('click', function() {
-    quickViewModal.addClass('active');
-    $("body").addClass('fix');
-  });
-  $(".btn-close, .canvas-overlay").on('click', function() {
-    quickViewModal.removeClass('active');
-    $("body").removeClass('fix');
-  });
-
-  // Sidebar Cart JS
-  var sidebarCartModal = $(".sidebar-cart-modal");
-  $(".cart-icon").on('click', function() {
-    sidebarCartModal.addClass('sidebar-cart-active');
-    $(".sidebar-cart-overlay").addClass('show');
-  });
-  $(".sidebar-cart-content .cart-close").on('click', function() {
-    sidebarCartModal.removeClass('sidebar-cart-active');
-    $(".sidebar-cart-overlay").removeClass('show');
-  });
-
-  // Checkout Toggle Active
-  $('.checkout-coupon-active').on('click', function(e) {
-    e.preventDefault();
-    $('.checkout-coupon-content').slideToggle(1000);
-  });
 
   // Swipper JS
 
@@ -89,67 +52,67 @@
     slidesPerView: 3,
     slidesPerGroup: 1,
     loop: true,
-    spaceBetween : 30,
+    spaceBetween: 30,
     breakpoints: {
-      1500:{
-          slidesPerView : 3
+      1500: {
+        slidesPerView: 3
       },
 
-      992:{
-          slidesPerView : 3
+      992: {
+        slidesPerView: 3
       },
 
-      768:{
-          slidesPerView : 2
+      768: {
+        slidesPerView: 2
       },
 
-      625:{
-          slidesPerView : 2,
-          spaceBetween : 15,
+      625: {
+        slidesPerView: 2,
+        spaceBetween: 15,
       },
 
-      0:{
-          slidesPerView : 1
+      0: {
+        slidesPerView: 1
       }
     }
   });
 
   // Brand Slider
   var swiper = new Swiper('.brand-logo-slider-container', {
-    slidesPerView : 6,
+    slidesPerView: 6,
     loop: true,
     speed: 1000,
-    spaceBetween : 0,
+    spaceBetween: 0,
     autoplay: false,
     breakpoints: {
-      1200:{
-          slidesPerView : 6
+      1200: {
+        slidesPerView: 6
       },
 
-      992:{
-          slidesPerView : 4,
-          spaceBetween : 30
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 30
       },
 
-      768:{
-          slidesPerView : 3,
-          spaceBetween : 30
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
 
       },
 
-      576:{
-          slidesPerView : 3,
-          spaceBetween : 30
+      576: {
+        slidesPerView: 3,
+        spaceBetween: 30
       },
 
-      380:{
-          slidesPerView : 2,
-          spaceBetween : 30
+      380: {
+        slidesPerView: 2,
+        spaceBetween: 30
       },
 
-      0:{
-          slidesPerView : 2,
-          spaceBetween : 30
+      0: {
+        slidesPerView: 2,
+        spaceBetween: 30
       }
     }
   });
@@ -158,7 +121,7 @@
   var swiper = new Swiper('.product4-slider-container', {
     slidesPerView: 4,
     loop: true,
-    spaceBetween : 30,
+    spaceBetween: 30,
     autoplay: {
       delay: 4000,
     },
@@ -167,25 +130,25 @@
       prevEl: '.product4-slider-container .swiper-button-prev',
     },
     breakpoints: {
-      1200:{
-          slidesPerView : 4
+      1200: {
+        slidesPerView: 4
       },
 
-      992:{
-          slidesPerView : 3
+      992: {
+        slidesPerView: 3
       },
 
-      768:{
-          slidesPerView : 2
+      768: {
+        slidesPerView: 2
 
       },
 
-      576:{
-          slidesPerView : 2
+      576: {
+        slidesPerView: 2
       },
 
-      0:{
-          slidesPerView : 1
+      0: {
+        slidesPerView: 1
       }
     }
   });
@@ -216,30 +179,30 @@
     slidesPerView: 3,
     slidesPerGroup: 1,
     loop: true,
-    spaceBetween : 40,
+    spaceBetween: 40,
     breakpoints: {
-      1500:{
-          slidesPerView : 3,
-          spaceBetween : 40
+      1500: {
+        slidesPerView: 3,
+        spaceBetween: 40
       },
 
-      992:{
-          slidesPerView : 3,
-          spaceBetween : 30
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30
       },
 
-      768:{
-          slidesPerView : 2,
-          spaceBetween : 30
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30
       },
 
-      620:{
-          slidesPerView : 2,
-          spaceBetween : 15,
+      620: {
+        slidesPerView: 2,
+        spaceBetween: 15,
       },
 
-      0:{
-          slidesPerView : 1
+      0: {
+        slidesPerView: 1
       }
     }
   });
@@ -318,7 +281,7 @@
       itemSelector: '.masonry-item'
     })
     // Isotope filter Menu
-    $('.portfolio-filter-menu').on( 'click', 'button', function() {
+    $('.portfolio-filter-menu').on('click', 'button', function () {
       var filterValue = $(this).attr('data-filter');
       $grid.isotope({ filter: filterValue });
       $gridMasonry.isotope({ filter: filterValue });
@@ -327,7 +290,7 @@
       $(this).addClass('active');
     });
   }
-  
+
   // Images Zoom
   $('.zoom-hover').zoom();
 
@@ -348,74 +311,6 @@
   //   alert('Done!');
   // });
 
-  //Shop review btn
-  $(".review-write-btn").on('click', function() {
-    $(".product-review-form").toggle('active');
-  });
-
-  // Product Qty
-  var proQty = $(".pro-qty");
-  proQty.append('<a href="#" class="inc qty-btn"><i class="fa fa-plus"></i></a>');
-  proQty.append('<a href="#" class= "dec qty-btn"><i class="fa fa-minus"></i></a>');
-  $('.qty-btn').on('click', function(e) {
-    e.preventDefault();
-    var $button = $(this);
-    var oldValue = $button.parent().find('input').val();
-    if ($button.hasClass('inc')) {
-      var newVal = parseFloat(oldValue) + 1;
-    } else {
-      // Don't allow decrementing below zero
-      if (oldValue > 1) {
-        var newVal = parseFloat(oldValue) - 1;
-      } else {
-        newVal = 1;
-      }
-    }
-    $button.parent().find('input').val(newVal);
-  });
-
-  // Product Qty
-  var proQty2 = $(".pro-qty-style2");
-  proQty2.append('<a href="#" class="inc qty-btn"><i class="fa fa-plus"></i></a>');
-  proQty2.append('<a href="#" class= "dec qty-btn"><i class="fa fa-window-minimize"></i></a>');
-  $('.qty-btn').on('click', function(e) {
-    e.preventDefault();
-    var $button2 = $(this);
-    var oldValue2 = $button2.parent().find('input').val();
-    if ($button2.hasClass('inc')) {
-      var newVal2 = parseFloat(oldValue2) + 1;
-    } else {
-      // Don't allow decrementing below zero
-      if (oldValue2 > 1) {
-        var newVal2 = parseFloat(oldValue2) - 1;
-      } else {
-        newVal2 = 1;
-      }
-    }
-    $button2.parent().find('input').val(newVal2);
-  });
-
-  //Checkout Page Checkbox Accordion
-  $("#create_pwd").on("change", function() {
-    $(".account-create").slideToggle("100");
-  });
-
-  $("#ship_to_different").on("change", function() {
-    $(".ship-to-different").slideToggle("100");
-  });
-
-  $('.checkout-toggle').on('click', function() {
-    $('.open-toggle').slideToggle(1000);
-  });
-
-  var checked = $( '.sin-payment input:checked' )
-  if(checked){
-    $(checked).siblings( '.payment-box' ).slideDown(900);
-  };
- $( '.sin-payment input' ).on('change', function() {
-    $( '.payment-box' ).slideUp(900);
-    $(this).siblings( '.payment-box' ).slideToggle(900);
-  });
 
   //Tippy Tooltip JS
   tippy('.ht-tooltip', {
@@ -426,7 +321,7 @@
 
   // Scroll Top Hide Show
   var varWindow = $(window);
-  varWindow.on('scroll', function(){
+  varWindow.on('scroll', function () {
     if ($(this).scrollTop() > 250) {
       $('.scroll-to-top').fadeIn();
     } else {
@@ -434,7 +329,7 @@
     }
 
     // Sticky Header
-    if($('.sticky-header').length){
+    if ($('.sticky-header').length) {
       var windowpos = $(this).scrollTop();
       if (windowpos >= 80) {
         $('.sticky-header').addClass('sticky');
@@ -448,71 +343,56 @@
   var form = $('#contact-form');
   var formMessages = $('.form-message');
 
-  $(form).submit(function(e) {
+  $(form).submit(function (e) {
     e.preventDefault();
     var formData = form.serialize();
     $.ajax({
-        type: 'POST',
-        url: form.attr('action'),
-        data: formData
-    }).done(function(response) {
-        // Make sure that the formMessages div has the 'success' class.
-        $(formMessages).removeClass('alert alert-danger');
-        $(formMessages).addClass('alert alert-success fade show');
+      type: 'POST',
+      url: form.attr('action'),
+      data: formData
+    }).done(function (response) {
+      // Make sure that the formMessages div has the 'success' class.
+      $(formMessages).removeClass('alert alert-danger');
+      $(formMessages).addClass('alert alert-success fade show');
 
-        // Set the message text.
+      // Set the message text.
+      formMessages.html("<button type='button' class='btn-close' data-bs-dismiss='alert'>&times;</button>");
+      formMessages.append(response);
+
+      // Clear the form.
+      $('#contact-form input,#contact-form textarea').val('');
+    }).fail(function (data) {
+      // Make sure that the formMessages div has the 'error' class.
+      $(formMessages).removeClass('alert alert-success');
+      $(formMessages).addClass('alert alert-danger fade show');
+
+      // Set the message text.
+      if (data.responseText === '') {
         formMessages.html("<button type='button' class='btn-close' data-bs-dismiss='alert'>&times;</button>");
-        formMessages.append(response);
-
-        // Clear the form.
-        $('#contact-form input,#contact-form textarea').val('');
-    }).fail(function(data) {
-        // Make sure that the formMessages div has the 'error' class.
-        $(formMessages).removeClass('alert alert-success');
-        $(formMessages).addClass('alert alert-danger fade show');
-
-        // Set the message text.
-        if (data.responseText === '') {
-            formMessages.html("<button type='button' class='btn-close' data-bs-dismiss='alert'>&times;</button>");
-            formMessages.append(data.responseText);
-        } else {
-            $(formMessages).text('Oops! An error occurred and your message could not be sent.');
-        }
+        formMessages.append(data.responseText);
+      } else {
+        $(formMessages).text('Oops! An error occurred and your message could not be sent.');
+      }
     });
   });
 
   //Scroll To Top
-  $('.scroll-to-top').on('click', function(){
-    $('html, body').animate({scrollTop : 0},800);
+  $('.scroll-to-top').on('click', function () {
+    $('html, body').animate({ scrollTop: 0 }, 800);
     return false;
   });
 
-  // Reveal Footer JS
-  let revealId = $(".reveal-footer"),
-    footerHeight = revealId.outerHeight(),
-    windowWidth = $(window).width(),
-    windowHeight = $(window).outerHeight(),
-    leftFixedHeader = $("header.fixed-left"),
-    leftFixedHeaderWidth = leftFixedHeader.innerWidth();
+  /* ==========================================================================
+      When document is loading, do
+     ========================================================================== */
 
-  if (windowWidth > 991 && windowHeight > footerHeight) {
-    $(".site-wrapper-reveal").css({
-      'margin-bottom': footerHeight + 'px'
-    });
-  }
-  
-  
-/* ==========================================================================
-   When document is loading, do
-   ========================================================================== */
-  
-  varWindow.on('load', function() {
+  varWindow.on('load', function () {
     isotopePortfolio();
     AOS.init({
       once: true,
     });
     stylePreloader();
   });
-  
+
 
 })(window.jQuery);

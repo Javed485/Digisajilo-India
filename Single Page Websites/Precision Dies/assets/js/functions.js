@@ -1,23 +1,23 @@
 /*global jQuery */
 /* Contents
 // ------------------------------------------------>
-	1.  Background INSERT
-	2.  HEADER AFFIX
-	3.	AJAX MAILCHIMP
-	4.  AJAX CAMPAIGN MONITOR 
-	5.  OWL CAROUSEL
-	6.  SCROLL TO
-	7.  WOW
-	8.  Youtube Background
+    1.  Background INSERT
+    2.  HEADER AFFIX
+    3.	AJAX MAILCHIMP
+    4.  AJAX CAMPAIGN MONITOR 
+    5.  OWL CAROUSEL
+    6.  SCROLL TO
+    7.  WOW
+    8.  Youtube Background
 */
-(function($) {
+(function ($) {
     "use strict";
 
     /* ------------------  Background INSERT ------------------ */
 
     var $bgSection = $(".bg-section");
 
-    $bgSection.each(function() {
+    $bgSection.each(function () {
         var bgSrc = $(this).children("img").attr("src");
         var bgUrl = 'url(' + bgSrc + ')';
         $(this).parent().css("backgroundImage", bgUrl);
@@ -54,12 +54,12 @@
 
     /* ------------------  AJAX CAMPAIGN MONITOR  ------------------ */
 
-    $('#campaignmonitor').submit(function(e) {
+    $('#campaignmonitor').submit(function (e) {
         e.preventDefault();
         $.getJSON(
             this.action + "?callback=?",
             $(this).serialize(),
-            function(data) {
+            function (data) {
                 if (data.Status === 400) {
                     alert("Error: " + data.Message);
                 } else { // 200
@@ -70,7 +70,7 @@
 
     /* ------------------ OWL CAROUSEL ------------------ */
 
-    $(".carousel").each(function() {
+    $(".carousel").each(function () {
         var $Carousel = $(this);
         $Carousel.owlCarousel({
             loop: $Carousel.data('loop'),
@@ -96,12 +96,12 @@
     /* ------------------  SCROLL TO ------------------ */
 
     var aScroll = $('a[data-scroll="scrollTo"]');
-    aScroll.on('click', function(event) {
+    aScroll.on('click', function (event) {
         var target = $($(this).attr('href'));
         if (target.length) {
             event.preventDefault();
             $('html, body').animate({
-                scrollTop: target.offset().top-100
+                scrollTop: target.offset().top - 100
             }, 1000);
         }
     });
@@ -120,7 +120,7 @@
     wow.init();
 
     /* ------------------  Youtube Background  ------------------ */
-    $(".bg-ytvideo").each(function() {
+    $(".bg-ytvideo").each(function () {
 
         var vidId = $(this).data("vid-id"),
             vidAutoPlay = $(this).data("autoplay"),
@@ -160,8 +160,8 @@
     });
 
     $(".bg-ytvideo").mb_YTPlayer();
-	
-	/* ------------------  COUNTER UP ------------------ */
+
+    /* ------------------  COUNTER UP ------------------ */
 
     $(".counting").counterUp({
         delay: 10,
@@ -169,27 +169,29 @@
     });
 
     /* ------------------  SLIDER ------------------ */
-    $(document).ready(function(){
+    $(document).ready(function () {
         $("slider>.slide--item:gt(0)").hide()
-            setInterval(function(){
-                $("#slider>.slide--item:first").fadeOut(1000)
+        setInterval(function () {
+            $("#slider>.slide--item:first").fadeOut(1000)
                 .next()
                 .fadeIn()
                 .end()
                 .appendTo('#slider')
-            },5000);
-    });	
+        }, 5000);
+    });
 
 }(jQuery));
 
-<!-- Google Analytics -->
+// Google Analytics
 
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
 ga('create', 'UA-89540131-1', 'auto');
 ga('send', 'pageview');
 
-<!-- End Google Analytics -->
+// End Google Analytics
