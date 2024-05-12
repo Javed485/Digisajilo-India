@@ -43,7 +43,7 @@ $(function () {
         });
     });
     var wind = $(window);
-    
+
     // ScrollIt
     $.scrollIt({
         upKey: 38, // key code to navigate to the next section
@@ -54,7 +54,7 @@ $(function () {
         onPageChange: null, // function(pageIndex) that is called when page is changed
         topOffset: -70 // offste (in px) for fixed top navigation
     });
-    
+
     // Navbar scrolling background
     wind.on("scroll", function () {
         var bodyScroll = wind.scrollTop(),
@@ -72,7 +72,7 @@ $(function () {
     $(".navbar-nav .dropdown-item a").on('click', function () {
         $(".navbar-collapse").removeClass("show");
     });
-    
+
     // Sections background image from data background
     var pageSection = $(".bg-img, section");
     pageSection.each(function (indx) {
@@ -80,7 +80,7 @@ $(function () {
             $(this).css("background-image", "url(" + $(this).data("background") + ")");
         }
     });
-    
+
     // Animations
     var contentWayPoint = function () {
         var i = 0;
@@ -114,10 +114,10 @@ $(function () {
     $(function () {
         contentWayPoint();
     });
-    
+
     //  YouTubePopUp
     $("a.vid").YouTubePopUp();
-    
+
     // Testimonials owlCarousel
     $('.testimonials .owl-carousel').owlCarousel({
         loop: true,
@@ -140,32 +140,7 @@ $(function () {
             }
         }
     });
-    
-    // Team owlCarousel
-    $('.team .owl-carousel').owlCarousel({
-        loop: true,
-        margin: 30,
-        mouseDrag: true,
-        autoplay: false,
-        dots: true,
-        autoplayHoverPause: true,
-        nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 1
-            },
-            1000: {
-                items: 1
-            }
-        }
-    });
-    
-    
+
     // Gallery - Portfolio details owlCarousel 
     $('.gallery .owl-carousel').owlCarousel({
         loop: true,
@@ -188,7 +163,7 @@ $(function () {
             }
         }
     });
-    
+
     // Blog owlCarousel 
     $('.blog .owl-carousel').owlCarousel({
         loop: true,
@@ -211,7 +186,7 @@ $(function () {
             }
         }
     });
-    
+
     // MagnificPopup Gallery
     $(".img-zoom").magnificPopup({
         type: "image",
@@ -231,7 +206,7 @@ $(function () {
         preloader: false,
         fixedContentPos: false
     });
-    
+
     //  Scroll back to top
     var progressPath = document.querySelector('.progress-wrap path');
     var pathLength = progressPath.getTotalLength();
@@ -264,110 +239,17 @@ $(function () {
         }, duration);
         return false;
     })
-    
-    // Slider 
-    $(document).ready(function () {
-        var owl = $('.header .owl-carousel');
-        // Slider owlCarousel
-        $('.slider .owl-carousel').owlCarousel({
-            items: 1,
-            loop: true,
-            dots: false,
-            margin: 0,
-            autoplay: false,
-            autoplayTimeout: 6000,
-            smartSpeed: 500,
-            nav: true,
-            navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>']
-        });
-        // Slider Fade owlCarousel
-        $('.slider-fade .owl-carousel').owlCarousel({
-            items: 1,
-            loop: true,
-            dots: false,
-            margin: 0,
-            autoplay: false,
-            smartSpeed: 500,
-            autoplayTimeout: 6000,
-            animateOut: 'fadeOut',
-            nav: true,
-            navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>']
-        });
-        owl.on('changed.owl.carousel', function (event) {
-            var item = event.item.index - 2; // Position of the current item
-            $('h6').removeClass('animated fadeInUp');
-            $('h1').removeClass('animated fadeInUp');
-            $('p').removeClass('animated fadeInUp');
-            $('.btn-curve').removeClass('animated fadeInUp');
-            $('.owl-item').not('.cloned').eq(item).find('h6').addClass('animated fadeInUp');
-            $('.owl-item').not('.cloned').eq(item).find('h1').addClass('animated fadeInUp');
-            $('.owl-item').not('.cloned').eq(item).find('p').addClass('animated fadeInUp');
-            $('.owl-item').not('.cloned').eq(item).find('.btn-curve').addClass('animated fadeInUp');
-        });
-    });
-    
-    // Faqs Accordion Box
-    if ($(".accordion-box").length) {
-        $(".accordion-box").on("click", ".acc-btn", function () {
-            var outerBox = $(this).parents(".accordion-box");
-            var target = $(this).parents(".accordion");
-            if ($(this).next(".acc-content").is(":visible")) {
-                //return false;
-                $(this).removeClass("active");
-                $(this).next(".acc-content").slideUp(300);
-                $(outerBox).children(".accordion").removeClass("active-block");
-            } else {
-                $(outerBox).find(".accordion .acc-btn").removeClass("active");
-                $(this).addClass("active");
-                $(outerBox).children(".accordion").removeClass("active-block");
-                $(outerBox).find(".accordion").children(".acc-content").slideUp(300);
-                target.addClass("active-block");
-                $(this).next(".acc-content").slideDown(300);
-            }
-        });
-    }
-    
-    // Contact Form
-    var form = $('.contact__form'),
-        message = $('.contact__msg'),
-        form_data;
-    // success function
-    function done_func(response) {
-        message.fadeIn().removeClass('alert-danger').addClass('alert-success');
-        message.text(response);
-        setTimeout(function () {
-            message.fadeOut();
-        }, 2000);
-        form.find('input:not([type="submit"]), textarea').val('');
-    }
-    // fail function
-    function fail_func(data) {
-        message.fadeIn().removeClass('alert-success').addClass('alert-success');
-        message.text(data.responseText);
-        setTimeout(function () {
-            message.fadeOut();
-        }, 2000);
-    }
-    form.submit(function (e) {
-        e.preventDefault();
-        form_data = $(this).serialize();
-        $.ajax({
-            type: 'POST',
-            url: form.attr('action'),
-            data: form_data
-        }).done(done_func).fail(fail_func);
-    });
-    
+
     // Select2
     $('.select2').select2({
         minimumResultsForSearch: Infinity,
     });
-    
+
     // Datepicker
     $(".datepicker").datepicker({
         orientation: "top"
     });
-    
+
     // Magnet Cursor
     function magnetize(el, e) {
         var mX = e.pageX,
@@ -401,7 +283,7 @@ $(function () {
     function lerp(a, b, n) {
         return (1 - n) * a + n * b
     }
-    
+
     // Mouse Cursor
     class Cursor {
         constructor() {
@@ -419,7 +301,7 @@ $(function () {
             this.rAF = undefined
         }
         bind() {
-      ['getMousePosition', 'run'].forEach((fn) => this[fn] = this[fn].bind(this))
+            ['getMousePosition', 'run'].forEach((fn) => this[fn] = this[fn].bind(this))
         }
         getMousePosition(e) {
             this.mouseCurrent = {
@@ -457,7 +339,7 @@ $(function () {
             $('.cursor').toggleClass('drag');
         });
     }
-    
+
     // Process Accrodion
     if ($(".accrodion-grp").length) {
         var accrodionGrp = $(".accrodion-grp");
@@ -480,12 +362,5 @@ $(function () {
             });
         });
     }
-    //  Pricing Accordion
-    $(".accordion").on("click", ".title", function () {
-        $(this).next().slideDown();
-        $(".accordion-info").not($(this).next()).slideUp();
-    });
-    $(".accordion").on("click", ".item", function () {
-        $(this).addClass("active").siblings().removeClass("active");
-    });
+
 });
